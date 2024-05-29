@@ -37,3 +37,36 @@ describe('Calculator methods', () => {
         expect(calculator.multiply(3, 4)).toBe(12);
     });
 });
+
+describe('caesarCipher function', ()=>{
+    test('return shifted string', ()=> {
+        expect(caesarCipher('abc', 1)).toBe('bcd');
+    });
+
+    test('return wrapped characters after z/Z', ()=>{
+        expect(caesarCipher('xYz', 3)).toBe('aBc');
+    });
+
+    test('preserve non-alphabetical characters', ()=>{
+        expect(caesarCipher('Hello, World!', 3)).toBe('Khoor, Zruog!');
+    });
+});
+
+describe('analyzeArray function', ()=>{
+    test('contains object with average of numbers', ()=>{
+        expect(analyzeArray([1,8,3,4,2,6])).toMatchObject({'average': 4});
+    });
+
+    test('contains object with min of numbers', ()=>{
+        expect(analyzeArray([1,8,3,4,2,6])).toMatchObject({'min': 1});
+    });
+
+    test('contains object with max of numbers', ()=>{
+        expect(analyzeArray([1,8,3,4,2,6])).toMatchObject({'max': 8});
+    });
+
+    test('contains object with length of array', ()=>{
+        expect(analyzeArray([1,8,3,4,2,6])).toMatchObject({'length': 6});
+    });
+});
+
